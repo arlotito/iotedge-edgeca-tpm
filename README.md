@@ -15,7 +15,7 @@ This applies to Azure IoT Edge 1.2+
 ### 1) remove any pre-existing certs
 ```bash
 rm -rf $HOME/certs
-sudo rm -rf /var/lib/aziot/certs
+sudo rm -rf /var/lib/aziot/certd/certs
 ```
 
 ### 2) create private CA (root and intermediate)
