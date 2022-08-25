@@ -56,14 +56,18 @@ sudo tpm2_ptool listtokens --pid 1 --path '/opt/tpm2-pkcs11'
 ```
 
 ### 4) create edge-ca CSR and get it signed
-Edit "EDGE_CA_CN" and user's home to match yours.
+Edit "EDGE_CA_CN" and "USER_HOME" to match yours.
 
 ```bash
 sudo su
 
-PKCS11_ENGINE_CONF=/home/arlotito/pkcs11-engine.conf
-CERTS_HOME=/home/arlotito/certgen-home
+# do edit to match your needs
 EDGE_CA_CN=myEdgeCAtpm-2.ca
+USER_HOME=/home/arlotito
+
+# 
+PKCS11_ENGINE_CONF=${USER_HOME}/pkcs11-engine.conf
+CERTS_HOME=${USER_HOME}/certgen-home
 
 # create CSR:
 export CERTIFICATE_OUTPUT_DIR=$(pwd)
