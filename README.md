@@ -14,7 +14,10 @@ This applies to Azure IoT Edge 1.2+
 
 ### 1) remove any pre-existing certs
 ```bash
-rm -rf $HOME/certs
+# folder with the certGen.sh script
+rm -rf $HOME/certgen-home
+
+# iotedge certs
 sudo rm -rf /var/lib/aziot/certd/certs
 ```
 
@@ -23,8 +26,8 @@ The IoT Edge's certGen.sh script is used.
 
 ```bash
 cd
-mkdir certs
-cd certs
+mkdir certgen-home
+cd certgen-home
 
 # get config
 curl https://raw.githubusercontent.com/Azure/iotedge/main/tools/CACertificates/openssl_root_ca.cnf -o openssl_root_ca.cnf
@@ -59,7 +62,7 @@ Edit "EDGE_CA_CN" and user's home to match yours.
 sudo su
 
 PKCS11_ENGINE_CONF=/home/arlotito/pkcs11-engine.conf
-CERTS_HOME=/home/arlotito/certs
+CERTS_HOME=/home/arlotito/certgen-home
 EDGE_CA_CN=myEdgeCAtpm-2.ca
 
 # create CSR:
